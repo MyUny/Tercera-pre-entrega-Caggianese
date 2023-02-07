@@ -1,77 +1,36 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from AppCoder.models import Curso, Entregable
+from AppCoder.models import Curso, Entregable, Estudiante, Profesor
 from django.forms import *
 from django.shortcuts import redirect
-from AppCoder.forms import CursoFormulario, entregablesForm
+from AppCoder.forms import CursoFormulario, entregablesForm, estudianteForm, profesorForm
 # Create your views here.
 
 
 def inicio(request):
     return render(request, "AppCoder/inicio.html")
 
-
-def cursos(request):
-    return render(request, "AppCoder/cursos.html")
-
-
-def profesores(request):
-    return render(request, "AppCoder/profesores.html")
-
-
-def estudiantes(request):
-    return render(request, "AppCoder/estudiantes.html")
-
-
-def entregables(request):
-    return render(request, "AppCoder/entregables.html")
-
-
-def landing(request):
-    return render(request, "AppCoder/landing.html")
-
-
-def padre(request):
-    return render(request, "AppCoder/padre.html")
-
-
-def hijo(request):
-    return render(request, "AppCoder/hijo.html")
-
-# def cursoFormulario(request):
-#
-#    if request.method == 'POST':
-#
-#        curso = Curso (request.POST['curso'], request.POST['camada'])
-#
-#    return render(request, "AppCoder/cursoFormulario.html")
-
-# def cursoFormulario(request):
-#    if request.method == 'POST':
-#        form = Curso(request.POST)
-#        if form.is_valid():
-#            form.save()
-#            return redirect(cursoFormulario)
-#    else:
-#        form = Curso()
-#    return render(request, "AppCoder/cursoFormulario.html", {'form': form})
-
-
-# def cursoFormulario(request):
+def estudianteFormulario(request):
     if request.method == 'POST':
-        miFormulario = CursoFormulario(request.POST)
+
+        miFormulario = estudianteForm(request.POST)
         print(miFormulario)
+
         if miFormulario.is_valid():
+
             informacion = miFormulario.cleaned_data
-            curso = Curso(curso=informacion['curso'],
-                          camada=informacion['camada'])
-            curso.save()
-            return render(request, "AppCoder/inicio.html")
-        else:
-            return render(request, "AppCoder/cursoFormulario.html", {"miFormulario": miFormulario})
+
+            estudiante = Estudiante(nombre=informacion['nombre'],
+                                    apellido=informacion['apellido'], email=informacion['email'])
+
+            estudiante.save()
+
+            return redirect("estudianteFormulario")
+
     else:
-        miFormulario = CursoFormulario()
-        return render(request, "AppCoder/cursoFormulario.html", {"miFormulario": miFormulario})
+
+        miFormulario = estudianteForm()
+    return render(request, "AppCoder/estudianteFormulario.html", {"miFormulario": miFormulario})
 
 
 def cursoFormulario(request):
@@ -124,7 +83,7 @@ def entregableFormulario(request):
     if request.method == 'POST':
 
         miFormulario = entregablesForm(request.POST)
-        
+
         print(miFormulario)
 
         if miFormulario.is_valid():
@@ -142,3 +101,26 @@ def entregableFormulario(request):
 
         miFormulario = entregablesForm()
     return render(request, "AppCoder/entregableFormulario.html", {"miFormulario": miFormulario})
+
+
+def profesor(request):
+    if request.method == 'POST':
+
+        miFormulario = profesorForm(request.POST)
+        print(miFormulario)
+
+        if miFormulario.is_valid():
+
+            informacion = miFormulario.cleaned_data
+
+            profesor = Profesor(nombre=informacion['nombre'],
+                                    apellido=informacion['apellido'], email=informacion['email'], profesion=informacion['profesion'])
+
+            profesor.save()
+
+            return redirect("profesor")
+
+    else:
+
+        miFormulario = profesorForm()
+    return render(request, "AppCoder/profesor.html", {"miFormulario": miFormulario})

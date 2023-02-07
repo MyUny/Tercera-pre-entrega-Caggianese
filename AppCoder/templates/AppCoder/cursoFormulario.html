@@ -2,24 +2,35 @@
 {% load static %}
 {% block contenidoQueCambia %}
 
-<h1> PATATA </h1>
+<header class="masthead">
 
-<p>cambio y fuera</p>
+    <div class="container">
 
-<form action="cursoFormulario" method="POST">
-    {% csrf_token %}
-   <!-- <p><label>Curso:</label> <input type="text" name="curso"></p>
-    <p><label>Camada:</label> <input type="number" name="camada"></p> -->
-    <table>
+        <div class="masthead-subheading">Registra el curso</div>
 
-        {{ miFormulario.as_table }}
+    </header>
+    
+    <form action="cursoFormulario" method="POST">
+        {% csrf_token %}
+       <!-- <p><label>Curso:</label> <input type="text" name="curso"></p>
+        <p><label>Camada:</label> <input type="number" name="camada"></p> -->
+        <table>
+    
+            {{ miFormulario.as_table }}
+    
+        </table>
+    
+        <input type="submit" value="Enviar">
+    </form>
+    
+    
+    </form>
 
-    </table>
+    </div>
 
-    <input type="submit" value="Enviar">
-</form>
+    <br>
+    
 
 
-</form>
 
 {% endblock %}

@@ -2,21 +2,31 @@
 {% load static %}
 {% block contenidoQueCambia %}
 
-<p> Estamos buscando el: {{camada}}</p>
+<header class="masthead">
 
-{% if cursos %}
+    <div class="container">
 
-    <ul>
+    </header>
+    <p> Estamos buscando el: {{camada}}</p>
+    
+    {% if cursos %}
+    
+        <ul>
+    
+            {% for curso in cursos %}
+    
+                <li> {{curso.curso}} </li>
+                <li> {{curso.camada}} </li>
+    
+            {% endfor %}
+    
+        </ul>
+    
+    {% endif %}
 
-        {% for curso in cursos %}
+    </div>
 
-            <li> {{curso.curso}} </li>
-            <li> {{curso.camada}} </li>
-
-        {% endfor %}
-
-    </ul>
-
-{% endif %}
+    <br>
+    
 
 {% endblock %}

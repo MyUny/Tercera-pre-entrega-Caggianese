@@ -6,12 +6,13 @@
 
     <div class="container">
 
-        <div class="masthead-subheading">Registra la entrega</div>
+        <div class="masthead-subheading">Registrate como profesor</div>
 
     </header>
-    <form action="entregableFormulario" method="POST">
-        {% csrf_token %}
     
+    <form action="profesor" method="POST">
+        {% csrf_token %}
+
         <table>
     
             {{ miFormulario.as_table }}
@@ -23,17 +24,11 @@
     
     
     </form>
-    
-    
-    </form>
 
     </div>
 
     <br>
     
-
-
-
 
 
 

@@ -1,141 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
 
-        {% load static %}
+<head>
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href=" {% static 'AppCoder/landing/assets/favicon.ico' %} " />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href=" {% static 'AppCoder/landing/css/styles.css' %} " rel="stylesheet" />
-    </head>
-    <body>
-        <!--
-        <nav class="navbar navbar-light bg-light static-top"
-            <div class="container">
-		        <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
-		        <a class="navbar-brand" href="{% url 'profesores' %}">profesores</a>
-		        <a class="navbar-brand" href="{% url 'cursos' %}">Cursos</a>
-		        <a class="navbar-brand" href="{% url 'estudiantes' %}">Estudiantes</a>
-		        <a class="navbar-brand" href="{% url 'entregables' %}">Entregables</a>
-		        <a class="btn btn-primary" href="#NADAAUN">INICIAR</a>
-	        </div>
-        </nav>
-        -->
-        <!-- Navigation -->
-        <nav class="navbar navbar-light bg-light static-top">
-            <div class="container">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
-                <a class="btn btn-primary" href="{% url 'inicio' %}">Test</a>
-                <a class="btn btn-primary" href="{% url 'inicio' %}">Test 2</a>
-                <a class="btn btn-primary" href="{% url 'inicio' %}">Test 3</a>
+    {% load static %}
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Pre-entrega 3 Caggianese</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href=" {% static 'AppCoder/assets/favicon.ico' %} " />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href=" {% static 'AppCoder/css/styles.css' %} " rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'inicio' %}"><img
+                    src=" {% static 'AppCoder/assets/img/navbar-logo.svg' %} " alt="..." /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'cursoFormulario' %}">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profesor' %}">Profesores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'estudianteFormulario' %}">Estudiantes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'entregableFormulario' %}">Entregas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Equipo</a></li>                    
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
+
+
+    
+    
+
+
+
+        <!-- Zona Dinámica -->
         
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="text-center text-white">
-                            <!-- Page heading-->
-                            <h1 class="mb-5">Generate more leads with a professional landing page!</h1>
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                <!-- Email address input-->
-                                <div class="row">
-                                    <div class="col">
-                                        <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
-                                    </div>
-                                    <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-                                </div>
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        <p>To activate this form, sign up at</p>
-                                        <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                    </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            </form>
-                        </div>
+    {% block contenidoQueCambia %}
+
+
+
+
+
+    
+    {% endblock %} 
+
+
+    <!--  -->
+
+
+    <!-- Team-->
+    <section class="page-section bg-light" id="team">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Desarrollador</h2>
+                <h3 class="section-subheading text-muted"></h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="team-member">
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src=" {% static 'AppCoder/assets/img/team/2.jpg' %} "
+                            alt="..." />
+                        <h4>Germán Caggianese</h4>
+                        <p class="text-muted">CoderHouse Student</p>
                     </div>
                 </div>
             </div>
-        </header>
-
-        <!-- Parte dinámica -->
-
-        {% block contenidoQueCambia %}
-
-        {% endblock %} 
-
-        <!-- Footer-->
-        <footer class="footer bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                        <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
-                        </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2022. All Rights Reserved.</p>
-                    </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="large text-muted"></p>
                 </div>
             </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src=" {% static 'AppCoder/landing/js/scripts.js' %} "></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+        </div>
+    </section>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src=" {% static 'AppCoder/js/scripts.js' %} "></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
 </html>
