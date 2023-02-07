@@ -1,0 +1,24 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<h1> PATATA </h1>
+
+<p>cambio y fuera</p>
+
+<form action="entregableFormulario" method="POST">
+    {% csrf_token %}
+
+    <table>
+
+        {{ miFormulario.as_table }}
+
+    </table>
+
+    <input type="submit" value="Enviar">
+</form>
+
+
+</form>
+
+{% endblock %}
