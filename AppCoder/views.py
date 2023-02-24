@@ -10,7 +10,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 # Create your views here.
 
-@login_required
+@login_required(login_url='/AppCoder/login/')
 def inicio(request):
     return render(request, "AppCoder/inicio.html")
 
