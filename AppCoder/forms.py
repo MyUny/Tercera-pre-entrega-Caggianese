@@ -7,6 +7,11 @@ class CursoFormulario(forms.Form):
     curso = forms.CharField()
     camada = forms.IntegerField()
 
+class ComentarioFormulario(forms.Form):
+
+    comentario = forms.CharField()
+    firma = forms.CharField()    
+
 
 class estudianteForm(forms.Form):
 

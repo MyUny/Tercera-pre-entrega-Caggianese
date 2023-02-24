@@ -6,6 +6,10 @@ class Curso(models.Model):
     curso = models.CharField(max_length=40)
     camada = models.IntegerField()
     
+class Comentario(models.Model):
+    comentario = models.CharField(max_length=1200)
+    firma = models.CharField(max_length=50)
+
 class Estudiante(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)    

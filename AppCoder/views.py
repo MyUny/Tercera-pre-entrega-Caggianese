@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from AppCoder.models import Curso, Entregable, Estudiante, Profesor, Avatar
+from AppCoder.models import Curso, Entregable, Estudiante, Profesor, Avatar, Comentario
 from django.forms import *
 from django.shortcuts import redirect
 from AppCoder.forms import *
@@ -61,6 +61,28 @@ def cursoFormulario(request):
 
         miFormulario = CursoFormulario()
     return render(request, "AppCoder/cursoFormulario.html", {"miFormulario": miFormulario})
+
+def comentarioFormulario(request):
+    if request.method == 'POST':
+
+        miFormulario = ComentarioFormulario(request.POST)
+        print(miFormulario)
+
+        if miFormulario.is_valid():
+
+            informacion = miFormulario.cleaned_data
+
+            comentario = Comentario(comentario=informacion['comentario'],
+                          firma=informacion['firma'])
+
+            comentario.save()
+
+            return redirect("comentarioFormulario")
+
+    else:
+
+        miFormulario = ComentarioFormulario()
+    return render(request, "AppCoder/comentarioFormulario.html", {"miFormulario": miFormulario})
 
 
 def busquedaCamada(request):
