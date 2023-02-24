@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from AppCoder.models import Curso, Entregable, Estudiante, Profesor
+from AppCoder.models import Curso, Entregable, Estudiante, Profesor, Avatar
 from django.forms import *
 from django.shortcuts import redirect
 from AppCoder.forms import *
@@ -9,11 +9,13 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
+
 # Create your views here.
 
 @login_required(login_url='/AppCoder/login/')
 def inicio(request):
-    return render(request, "AppCoder/inicio.html")
+    avatares = Avatar.objects.filter(user=request.user.id)
+    return render(request, "AppCoder/inicio.html", {"url":avatares[0].imagen.url})
 
 def estudianteFormulario(request):
     if request.method == 'POST':
