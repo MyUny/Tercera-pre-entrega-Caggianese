@@ -67,6 +67,7 @@ def cursoFormulario(request):
         miFormulario = CursoFormulario()
     return render(request, "AppCoder/cursoFormulario.html", {"miFormulario": miFormulario})
 
+@login_required(login_url='/AppCoder/login/')
 def comentarioFormulario(request):
     if request.method == 'POST':
 
@@ -195,6 +196,7 @@ def login_request(request):
         mensaje = ''
     return render(request, 'AppCoder/login.html', {'form': form, 'mensaje': mensaje})
 
+@login_required(login_url='/AppCoder/login/')
 def logout_request(request):
     logout(request)
     messages.info(request, "Saliste sin problemas")
@@ -230,6 +232,7 @@ def editarPerfil(request):
     return render(request, "AppCoder/editarPerfil.html", {"miFormulario": miFormulario, "usuario": usuario})
 
 # Vistas CRUD
+
 
 class ComentarioList(ListView):
 	

@@ -10,15 +10,10 @@
 
     <div class="container">
 
-        <div class="masthead-heading text-uppercase">¡Bienvenido a mi Blog!</div>
-        <div class="masthead-subheading">Ultimas Publicaciones</div>
-        
-        
-        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'inicio' %}">Programación Orientada a Objetos</a>
-        <p></p>        
-        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'inicio' %}">CRUD</a>
-        
-        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'inicio' %}">Pero... ¿Qué es Python?</a>
+        <div class="masthead-heading text-uppercase">¡Bienvenido {{user.username}}!</div> 
+        <div class="masthead-heading text-uppercase"><img height='170px' class="mx-auto rounded-circle" src="{{url}}" alt="..." /></div>
+
+                        
     </div>
 
 </header>
@@ -29,11 +24,7 @@
 
 <!-- formulario buscar camada -->
 
-<section class="page-section bg-light" id="buscar">
 
-    
-
-</section>
 
 
 {% endblock %}

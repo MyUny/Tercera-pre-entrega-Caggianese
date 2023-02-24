@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Pre-entrega 3 Caggianese</title>
+    <title>Python Blog</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href=" {% static 'AppCoder/assets/favicon.ico' %} " />
     <!-- Font Awesome icons (free version)-->
@@ -36,8 +36,8 @@
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     
 
-                    <!-- Sin Implementar -->
-                    <li class="nav-item"><a class="nav-link" href="{% url 'profesor' %}">Posts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#posts">Publicaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'List' %}">Comentarios</a></li>
 
 
                     <li class="nav-item"><form action= "buscar" method="GET">
@@ -53,9 +53,8 @@
                         <li class="nav-item"><a class="btn btn-primary" href="{% url 'Register' %}">Registrarse</a></li>      
                     {% endif %}
                     {% if request.user.is_authenticated %}                
-                        <li class="nav-item"><a class="nav-link" href="{% url 'EditarPerfil' %}">{{user.username}}</a></li>      
-                        <li class="nav-item"><img height='40px' class="mx-auto rounded-circle" src="{{url}}" alt="..." /></li>   
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}">Cerrar Sesión</a></li>   
+                        <li class="nav-item"><a class="nav-link" href="{% url 'EditarPerfil' %}">Perfil</a></li>     
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}">Salir</a></li>   
                     {% endif %}
                 </ul>
             </div>
@@ -65,8 +64,7 @@
 
     
     
-
-
+  
 
         <!-- Zona Dinámica -->
         
@@ -74,14 +72,21 @@
 
 
 
-
-
+   
     
     {% endblock %} 
+   
+    <!-- Posts -->
 
-
-    <!--  -->
-
+    <section class="page-section bg-dark" id="posts">
+        <div class="text-center">
+        <h1 style="color:White;"> Ultimas Publicaciones</h1>
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'inicio' %}">Programación Orientada a Objetos</a>
+        <p></p>        
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'inicio' %}">CRUD</a>        
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'inicio' %}">Pero... ¿Qué es Python?</a>
+        </div>
+    </section>
 
     <!-- Team-->
     <section class="page-section bg-light" id="team">
