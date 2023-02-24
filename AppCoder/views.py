@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib import messages
 # Create your views here.
 
 @login_required(login_url='/AppCoder/login/')
@@ -165,3 +166,8 @@ def login_request(request):
         form = AuthenticationForm()
         mensaje = ''
     return render(request, 'AppCoder/login.html', {'form': form, 'mensaje': mensaje})
+
+def logout_request(request):
+    logout(request)
+    messages.info(request, "Saliste sin problemas")
+    return redirect("inicio")
