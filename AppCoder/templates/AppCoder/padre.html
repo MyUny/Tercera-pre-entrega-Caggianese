@@ -34,17 +34,28 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'cursoFormulario' %}">Cursos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'profesor' %}">Profesores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'estudianteFormulario' %}">Estudiantes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'entregableFormulario' %}">Entregas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Equipo</a></li>      
+                    
+
+                    <!-- Sin Implementar -->
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profesor' %}">Posts</a></li>
+
+
+                    <li class="nav-item"><form action= "buscar" method="GET">
+    
+                        <input type="number" name="camada" id="camada">
+                    
+                        <input type="submit" value="Buscar">
+                    
+                    </form></li>
+                    <!--<li class="nav-item"><a class="nav-link" href="{% url 'entregableFormulario' %}">Entregas</a></li>-->
+                    <li class="nav-item"><a class="nav-link" href="#team">About</a></li>      
                     {% if not request.user.is_authenticated %}
-                        <li class="nav-item"><a class="btn btn-primary" href="{% url 'Login' %}">INICIAR</a></li>      
+                        <li class="nav-item"><a class="btn btn-primary" href="{% url 'Register' %}">Registrarse</a></li>      
                     {% endif %}
-                    {% if request.user.is_authenticated %}                    
-                        <li class="nav-item"><p class="text-muted small mb-4 mb-lg-0">Hola, {{user.username}}</p></li>      
-                        <li class="nav-item"><img height="40px" src="{{url}}"></li>      
+                    {% if request.user.is_authenticated %}                
+                        <li class="nav-item"><a class="nav-link" href="{% url 'EditarPerfil' %}">{{user.username}}</a></li>      
+                        <li class="nav-item"><img height='40px' class="mx-auto rounded-circle" src="{{url}}" alt="..." /></li>   
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}">Cerrar Sesión</a></li>   
                     {% endif %}
                 </ul>
             </div>
