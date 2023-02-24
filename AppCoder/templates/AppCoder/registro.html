@@ -1,0 +1,27 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<header class="masthead">
+
+    <div class="container">
+
+        <div class="masthead-subheading">Regístrate</div>
+
+    </header>
+
+<form action="" method="POST">
+	
+	{% csrf_token %}
+	
+	{{form.as_p}}
+	
+	<button type="submit"> ¡Regístrate!</button>
+	
+</form>
+
+</div>
+
+<br>
+
+{% endblock %}

@@ -10,6 +10,7 @@ urlpatterns = [
     path('buscar/', views.buscar),
     path('entregableFormulario', views.entregableFormulario, name="entregableFormulario"),
     path('estudianteFormulario', views.estudianteFormulario, name="estudianteFormulario"),
+    path('register', views.register, name = 'Register'),
 ]
 
 

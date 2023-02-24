@@ -3,10 +3,11 @@ from django.http import HttpResponse
 from AppCoder.models import Curso, Entregable, Estudiante, Profesor
 from django.forms import *
 from django.shortcuts import redirect
-from AppCoder.forms import CursoFormulario, entregablesForm, estudianteForm, profesorForm
+from AppCoder.forms import *
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
+@login_required
 def inicio(request):
     return render(request, "AppCoder/inicio.html")
 
@@ -124,3 +125,20 @@ def profesor(request):
 
         miFormulario = profesorForm()
     return render(request, "AppCoder/profesor.html", {"miFormulario": miFormulario})
+
+def register(request):
+	
+    if request.method == 'POST':
+		# Form nativo Django ↓
+        #form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+			
+            username = form.cleaned_data['username']
+            form.save()
+            return render(request,"AppCoder/inicio.html" ,  {"mensaje":"Usuario Creado :)"})
+    else:
+		# Form nativo Django ↓
+	    #form = UserCreationForm()       
+        form = UserRegisterForm()
+    return render(request,"AppCoder/registro.html" ,  {"form":form})
