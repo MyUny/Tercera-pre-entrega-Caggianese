@@ -11,6 +11,21 @@
     </header>
 
 <!-- Agregar cosas debajo -->
+<h3>Deja tu comentario:</h3>
+<form action="comentarioFormulario" method="POST">
+	{% csrf_token %}
+   <!-- <p><label>Curso:</label> <input type="text" name="curso"></p>
+	<p><label>Camada:</label> <input type="number" name="camada"></p> -->
+	<table>
+
+		{{ miFormulario.as_table }}
+
+	</table>
+
+	<input type="submit" value="Enviar">
+</form>
+
+<p>---</p>
 
 <ul>
 	{% for comentario in object_list %}

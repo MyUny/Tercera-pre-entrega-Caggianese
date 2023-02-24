@@ -82,7 +82,7 @@ def comentarioFormulario(request):
 
             comentario.save()
 
-            return redirect("comentarioFormulario")
+            return redirect("List")
 
     else:
 
