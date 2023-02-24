@@ -1,0 +1,29 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<header class="masthead">
+
+    <div class="container">
+
+        <div class="masthead-subheading">Iniciar Sesión</div>
+
+    </header>
+
+<!-- Agregar cosas debajo -->
+
+
+<p>Nombre del Curso: <i>{{ curso.nombre }}</i></p>
+<p>Camada: <i>{{ curso.camada }}</i></p>
+<p>
+	<a href="{% url 'List' %}">Regresar</a>
+</p>
+
+
+<!-- Agregar cosas encima -->
+
+</div>
+
+<br>
+
+{% endblock %}

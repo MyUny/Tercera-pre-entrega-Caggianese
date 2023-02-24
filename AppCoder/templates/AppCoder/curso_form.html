@@ -1,0 +1,29 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<header class="masthead">
+
+    <div class="container">
+
+        <div class="masthead-subheading">Iniciar Sesión</div>
+
+    </header>
+
+<!-- Agregar cosas debajo -->
+
+
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Enviar" />
+</form>
+
+
+<!-- Agregar cosas encima -->
+
+</div>
+
+<br>
+
+{% endblock %}

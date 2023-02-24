@@ -9,7 +9,12 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
-
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
+from django.views.generic.edit import UpdateView
+from django.views.generic.edit import DeleteView
 # Create your views here.
 
 @login_required(login_url='/AppCoder/login/')
@@ -83,7 +88,6 @@ def comentarioFormulario(request):
 
         miFormulario = ComentarioFormulario()
     return render(request, "AppCoder/comentarioFormulario.html", {"miFormulario": miFormulario})
-
 
 def busquedaCamada(request):
 
@@ -224,3 +228,33 @@ def editarPerfil(request):
         miFormulario = UserEditForm(initial={'email': usuario.email})
 		
     return render(request, "AppCoder/editarPerfil.html", {"miFormulario": miFormulario, "usuario": usuario})
+
+# Vistas CRUD
+
+class CursoList(ListView):
+	
+	model = Curso
+	template_name = "AppCoder/cursos_list.html"
+
+class CursoDetalle(DetailView):
+	
+	model = Curso
+	template_name = "AppCoder/cursos_detalle.html"        
+
+class CursoCreacion(CreateView):
+	
+	model = Curso
+	success_url = "/AppCoder/curso/list"
+	fields = ['curso','camada']
+
+class CursoUpdate(UpdateView):
+	
+	model = Curso
+	success_url = "/AppCoder/curso/list"
+	fields = ['curso','camada']
+        
+class CursoDelete(DeleteView):
+	
+	model = Curso
+	success_url = "/AppCoder/curso/list"
+
