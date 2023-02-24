@@ -9,6 +9,8 @@ class Curso(models.Model):
 class Comentario(models.Model):
     comentario = models.CharField(max_length=1200)
     firma = models.CharField(max_length=50)
+    def __str__(self):
+	    return f"{self.comentario}"
 
 class Estudiante(models.Model):
     nombre = models.CharField(max_length=30)

@@ -1,0 +1,36 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<header class="masthead">
+
+    <div class="container">
+
+        <div class="masthead-subheading">Comentarios del Blog - Python</div>
+
+    </header>
+
+<!-- Agregar cosas debajo -->
+
+<ul>
+	{% for comentario in object_list %}
+		<li>
+			<h5>Comentario de: {{ comentario.firma }}</h5>
+			<p>{{ comentario.comentario }}</p>
+			<p>
+				<a href="{% url 'Detail' comentario.id %}">Ver</a>
+				<a href="{% url 'Edit' comentario.id %}">Editar</a>
+				<a href="{% url 'Delete' comentario.id %}">Borrar</a>
+			</p>
+		</li>
+	{% endfor %}
+</ul>
+
+
+<!-- Agregar cosas encima -->
+
+</div>
+
+<br>
+
+{% endblock %}

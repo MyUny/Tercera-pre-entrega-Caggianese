@@ -13,10 +13,9 @@
 <!-- Agregar cosas debajo -->
 
 
-<form method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Enviar" />
+<form method = "post">{% csrf_token %}
+	¿Estás seguro que deseas borrar el comentario "{{ object }}"?
+	<input type="submit" value="Eliminar" />
 </form>
 
 

@@ -6,18 +6,18 @@
 
     <div class="container">
 
-        <div class="masthead-subheading">Iniciar Sesión</div>
+        <div class="masthead-subheading">Editar Comentario</div>
 
     </header>
 
 <!-- Agregar cosas debajo -->
 
 
-<p>Nombre del Curso: <i>{{ curso.nombre }}</i></p>
-<p>Camada: <i>{{ curso.camada }}</i></p>
-<p>
-	<a href="{% url 'List' %}">Regresar</a>
-</p>
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Enviar" />
+</form>
 
 
 <!-- Agregar cosas encima -->

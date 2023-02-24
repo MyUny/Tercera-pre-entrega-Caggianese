@@ -6,17 +6,16 @@
 
     <div class="container">
 
-        <div class="masthead-subheading">Iniciar Sesión</div>
+        <div class="masthead-subheading">Comentario de: <i>{{ comentario.firma }}</div>        
+        <p><i>{{ comentario.comentario }}</i></p>
+        <p>
+	        <a href="{% url 'List' %}">Regresar</a>
+        </p>
 
     </header>
 
 <!-- Agregar cosas debajo -->
 
-
-<form method = "post">{% csrf_token %}
-	¿Estás seguro que deseas borrar el curso "{{ object }}"?
-	<input type="submit" value="Submit" />
-</form>
 
 
 <!-- Agregar cosas encima -->

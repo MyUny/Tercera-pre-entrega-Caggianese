@@ -231,30 +231,30 @@ def editarPerfil(request):
 
 # Vistas CRUD
 
-class CursoList(ListView):
+class ComentarioList(ListView):
 	
-	model = Curso
-	template_name = "AppCoder/cursos_list.html"
+	model = Comentario
+	template_name = "AppCoder/comentarios_list.html"
 
-class CursoDetalle(DetailView):
+class ComentarioDetalle(DetailView):
 	
-	model = Curso
-	template_name = "AppCoder/cursos_detalle.html"        
+	model = Comentario
+	template_name = "AppCoder/comentarios_detalle.html"        
 
-class CursoCreacion(CreateView):
+class ComentarioCreacion(CreateView):
 	
-	model = Curso
-	success_url = "/AppCoder/curso/list"
-	fields = ['curso','camada']
+	model = Comentario
+	success_url = "/AppCoder/comentario/list"
+	fields = ['comentario','firma']
 
-class CursoUpdate(UpdateView):
+class ComentarioUpdate(UpdateView):
 	
-	model = Curso
-	success_url = "/AppCoder/curso/list"
-	fields = ['curso','camada']
+	model = Comentario
+	success_url = "/AppCoder/comentario/list"
+	fields = ['comentario','firma']
         
-class CursoDelete(DeleteView):
+class ComentarioDelete(DeleteView):
 	
-	model = Curso
-	success_url = "/AppCoder/curso/list"
+	model = Comentario
+	success_url = "/AppCoder/comentario/list"
 
