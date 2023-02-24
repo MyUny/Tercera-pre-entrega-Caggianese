@@ -38,3 +38,20 @@ class UserRegisterForm(UserCreationForm):
 		fields = ['username', 'email', 'password1', 'password2']
 		# Saca los mensajes de ayuda
 		help_texts = {k:"" for k in fields}
+                
+class UserEditForm(UserCreationForm):
+
+    #Acá se definen las opciones que queres modificar del usuario, 
+    #Ponemos las básicas
+    email = forms.EmailField(label="Modificar E-mail")
+    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Repetir la contraseña', widget=forms.PasswordInput) 
+    # Mod
+    last_name = forms.CharField()
+    first_name = forms.CharField()
+	
+    class Meta:
+        model = User
+        fields = [ 'email', 'password1', 'password2', 'last_name', 'first_name'] 
+        #Saca los mensajes de ayuda
+        help_texts = {k:"" for k in fields}                  

@@ -1,0 +1,27 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<header class="masthead">
+
+    <div class="container">
+
+        <div class="masthead-subheading">Editar Usuario</div>
+
+    </header>
+
+    <form action="" method="POST">{% csrf_token %}
+	
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+        
+        <input type="submit", value="Enviar">
+        
+    </form>
+
+</div>
+
+<br>
+
+{% endblock %}
