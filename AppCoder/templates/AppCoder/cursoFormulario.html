@@ -5,23 +5,26 @@
 <header class="masthead">
 
     <div class="container">
+        <div class="masthead-subheading">Escribe tu Idea,</div>
+        <div class="masthead-subheading">Será tomada en cuenta :D</div>
+       
+            <form action="cursoFormulario" method="POST">
+            {% csrf_token %}
 
-        <div class="masthead-subheading">Registra el curso</div>
+            <table>
+        
+                {{ miFormulario.as_table }}
+        
+            </table>
+        
+            <input type="submit" value="Enviar">
+        </form>
+        
+        
 
     </header>
     
-    <form action="cursoFormulario" method="POST">
-        {% csrf_token %}
-       <!-- <p><label>Curso:</label> <input type="text" name="curso"></p>
-        <p><label>Camada:</label> <input type="number" name="camada"></p> -->
-        <table>
     
-            {{ miFormulario.as_table }}
-    
-        </table>
-    
-        <input type="submit" value="Enviar">
-    </form>
     
     
     </form>

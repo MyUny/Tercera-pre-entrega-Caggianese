@@ -55,8 +55,8 @@ def cursoFormulario(request):
 
             informacion = miFormulario.cleaned_data
 
-            curso = Curso(curso=informacion['curso'],
-                          camada=informacion['camada'])
+            curso = Curso(curso=informacion['idea'],
+                          camada=informacion['fecha'])
 
             curso.save()
 

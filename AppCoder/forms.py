@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 class CursoFormulario(forms.Form):
 
-    curso = forms.CharField()
-    camada = forms.IntegerField()
+    idea = forms.CharField()
+    fecha = forms.IntegerField()
 
 class ComentarioFormulario(forms.Form):
 
