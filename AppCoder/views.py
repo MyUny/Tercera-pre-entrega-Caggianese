@@ -5,6 +5,9 @@ from django.forms import *
 from django.shortcuts import redirect
 from AppCoder.forms import *
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
 # Create your views here.
 
 @login_required
@@ -142,3 +145,23 @@ def register(request):
 	    #form = UserCreationForm()       
         form = UserRegisterForm()
     return render(request,"AppCoder/registro.html" ,  {"form":form})
+
+@csrf_protect
+def login_request(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('inicio')  # redirigir al usuario a la página de inicio
+            else:
+                mensaje = 'Datos incorrectos'
+        else:
+            mensaje = 'Formulario incorrecto'
+    else:
+        form = AuthenticationForm()
+        mensaje = ''
+    return render(request, 'AppCoder/login.html', {'form': form, 'mensaje': mensaje})
