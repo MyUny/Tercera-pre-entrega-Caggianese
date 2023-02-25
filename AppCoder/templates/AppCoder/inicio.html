@@ -9,7 +9,17 @@
 <header class="masthead">
 
     <div class="container">
-
+        <h4>Busca Ideas por fecha</h4>
+        <form action= "buscar" method="GET">
+    
+            <input type="number" name="camada" id="camada">
+        
+            <input type="submit" value="Buscar">
+        
+        </form>
+        <br>
+        <br>
+        <br>
         <div class="masthead-heading text-uppercase">¡Bienvenido {{user.username}}!</div> 
         {% if avatares.exists %}
             <div class="masthead-heading text-uppercase"><img height='170px' class="mx-auto rounded-circle" src="{{url}}" alt="..." /></div>

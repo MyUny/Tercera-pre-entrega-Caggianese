@@ -6,8 +6,8 @@
 
     <div class="container">
 
-    </header>
-    <p> Estamos buscando el: {{camada}}</p>
+    
+    <h4> Estamos buscando el: {{camada}}</h4>
     
     {% if cursos %}
     
@@ -15,18 +15,19 @@
     
             {% for curso in cursos %}
     
-                <li> {{curso.curso}} </li>
-                <li> {{curso.camada}} </li>
+                <p> {{curso.curso}} </p>
+                
     
             {% endfor %}
     
         </ul>
     
     {% endif %}
-
+    </header>
     </div>
 
     <br>
     
 
+    
 {% endblock %}

@@ -40,13 +40,7 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'List' %}">Comentarios</a></li>
 
 
-                    <li class="nav-item"><form action= "buscar" method="GET">
-    
-                        <input type="number" name="camada" id="camada">
                     
-                        <input type="submit" value="Buscar">
-                    
-                    </form></li>
                     <!--<li class="nav-item"><a class="nav-link" href="{% url 'entregableFormulario' %}">Entregas</a></li>-->
                     <li class="nav-item"><a class="nav-link" href="#team">About</a></li>      
                     {% if not request.user.is_authenticated %}
