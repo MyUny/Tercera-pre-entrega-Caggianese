@@ -14,6 +14,7 @@ urlpatterns = [
     path('register', views.register, name = 'Register'),
     path('login/', views.login_request, name = 'Login'),
     path('posts/poo', views.programacionOO, name = 'POO'),
+    path('e404', views.e404, name = 'e404'),
     path('logout', LogoutView.as_view(template_name='AppCoder/logout.html'), name='Logout'),
     path('editarPerfil', views.editarPerfil, name="EditarPerfil"),
     path('comentario/list', views.ComentarioList.as_view(), name='List'),

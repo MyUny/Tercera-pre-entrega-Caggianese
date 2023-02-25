@@ -98,6 +98,10 @@ def programacionOO(request):
 
     return render(request, "AppCoder/ProgramacionOrientadaObjetos.html")
 
+def e404(request):
+
+    return render(request, "AppCoder/error404.html")
+
 
 def buscar(request):
 
