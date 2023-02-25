@@ -19,8 +19,13 @@ from django.views.generic.edit import DeleteView
 
 @login_required(login_url='/AppCoder/login/')
 def inicio(request):
-    avatares = Avatar.objects.filter(user=request.user.id)
-    return render(request, "AppCoder/inicio.html", {"url":avatares[0].imagen.url})
+    avatares = Avatar.objects.filter(user=request.user)
+    if avatares.exists():
+        return render(request, "AppCoder/inicio.html", {"url":avatares[0].imagen.url, "avatares":avatares})
+    else:
+        return render(request, "AppCoder/inicio.html", {"avatares":avatares})
+
+
 
 def estudianteFormulario(request):
     if request.method == 'POST':
@@ -177,7 +182,7 @@ def register(request):
 			
             username = form.cleaned_data['username']
             form.save()
-            return render(request,"AppCoder/inicio.html" ,  {"mensaje":"Usuario Creado :)"})
+            return redirect('inicio')
     else:
 		# Form nativo Django ↓
 	    #form = UserCreationForm()       

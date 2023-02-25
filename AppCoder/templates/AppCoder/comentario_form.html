@@ -8,22 +8,25 @@
 
         <div class="masthead-subheading">Editar Comentario</div>
 
-    </header>
+    
 
 <!-- Agregar cosas debajo -->
 
 
 <form method="post">
 	{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Enviar" />
+    <table style="margin-left:auto;margin-right:auto;">        
+	{{ form.as_table }}
+    </table>
+    <br>
+	<input type="submit" value="Confirmar" />
 </form>
 
 
 <!-- Agregar cosas encima -->
 
 </div>
-
+</header>
 <br>
 
 {% endblock %}

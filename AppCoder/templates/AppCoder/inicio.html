@@ -11,7 +11,12 @@
     <div class="container">
 
         <div class="masthead-heading text-uppercase">¡Bienvenido {{user.username}}!</div> 
-        <div class="masthead-heading text-uppercase"><img height='170px' class="mx-auto rounded-circle" src="{{url}}" alt="..." /></div>
+        {% if avatares.exists %}
+            <div class="masthead-heading text-uppercase"><img height='170px' class="mx-auto rounded-circle" src="{{url}}" alt="..." /></div>
+        {% else %}
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'AgregarAvatar' %}">Subir Avatar</a>
+        {% endif %}
+    
 
                         
     </div>

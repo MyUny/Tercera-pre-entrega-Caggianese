@@ -6,21 +6,21 @@
 
     <div class="container">
 
-        <div class="masthead-subheading">Iniciar Sesión</div>
+        <div class="masthead-subheading">Cargar Avatar</div>
 
-    </header>
+    
 
 <!-- Agregar cosas debajo -->
 
 
-<h3>Cargar Avatar</h3>
 <form method="POST" enctype="multipart/form-data">
     
     {% csrf_token %}
-    {{ miFormulario.as_p  }}
-      
-    
-    <input type="submit" value="Actualizar">
+    <table style="margin-left:auto;margin-right:300px;">
+    {{ miFormulario.as_table  }}    
+    </table>
+    <br>
+    <input type="submit" value="Subir">
     
     
 </form>
@@ -29,7 +29,7 @@
 <!-- Agregar cosas encima -->
 
 </div>
-
+</header>
 <br>
 
 {% endblock %}
