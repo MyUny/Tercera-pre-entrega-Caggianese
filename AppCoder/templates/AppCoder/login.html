@@ -7,18 +7,19 @@
     <div class="container">
 
         <div class="masthead-subheading">Iniciar Sesión</div>
+        <form action="" method="POST">
+	
+            {% csrf_token %}
+            
+            {{form.as_p}}
+            
+            <button type="submit"> Iniciar Sesión</button>
+            
+        </form>
 
     </header>
 
-<form action="" method="POST">
-	
-	{% csrf_token %}
-	
-	{{form.as_p}}
-	
-	<button type="submit"> Iniciar Sesión</button>
-	
-</form>
+
 
 </div>
 

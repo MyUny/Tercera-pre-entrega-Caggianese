@@ -6,25 +6,25 @@
 
     <div class="container">
 
-        <div class="masthead-subheading">Registra el curso</div>
+        <div class="masthead-subheading">Escribe tu comentario:</div>
 
-    </header>
+    
     
     <form action="comentarioFormulario" method="POST">
         {% csrf_token %}
        <!-- <p><label>Curso:</label> <input type="text" name="curso"></p>
         <p><label>Camada:</label> <input type="number" name="camada"></p> -->
-        <table>
+        <table style="margin-left:auto;margin-right:auto;">
     
             {{ miFormulario.as_table }}
     
         </table>
-    
+        <p></p>
         <input type="submit" value="Enviar">
     </form>
     
     
-    </form>
+    </header>
 
     </div>
 

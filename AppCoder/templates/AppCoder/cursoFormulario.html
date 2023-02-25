@@ -11,12 +11,12 @@
             <form action="cursoFormulario" method="POST">
             {% csrf_token %}
 
-            <table>
+            <table style="margin-left:auto;margin-right:auto;">
         
                 {{ miFormulario.as_table }}
         
             </table>
-        
+            <p></p>
             <input type="submit" value="Enviar">
         </form>
         
@@ -27,7 +27,7 @@
     
     
     
-    </form>
+    
 
     </div>
 

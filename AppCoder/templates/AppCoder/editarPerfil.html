@@ -8,20 +8,20 @@
 
         <div class="masthead-subheading">Editar Usuario</div>
 
-    </header>
+    
 
     <form action="" method="POST">{% csrf_token %}
 	
-        <table>
+        <table style="margin-left:auto;margin-right:auto;">
             {{ miFormulario.as_table }}
         </table>
-        
+        <br>
         <input type="submit", value="Enviar">
         
     </form>
 
 </div>
-
+</header>
 <br>
 
 {% endblock %}
