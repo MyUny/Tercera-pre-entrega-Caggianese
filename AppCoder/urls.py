@@ -22,6 +22,7 @@ urlpatterns = [
     path(r'^nuevo$', views.ComentarioCreacion.as_view(), name='New'),
     path(r'^editar/(?P<pk>\d+)$', views.ComentarioUpdate.as_view(), name='Edit'),
     path(r'^borrar/(?P<pk>\d+)$', views.ComentarioDelete.as_view(), name='Delete'),
+    path('agregarAvatar', views.agregarAvatar, name="AgregarAvatar"),
 ]
 
 

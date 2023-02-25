@@ -59,4 +59,10 @@ class UserEditForm(UserCreationForm):
         model = User
         fields = [ 'email', 'password1', 'password2', 'last_name', 'first_name'] 
         #Saca los mensajes de ayuda
-        help_texts = {k:"" for k in fields}                  
+        help_texts = {k:"" for k in fields}         
+
+class AvatarFormulario(forms.Form):
+	
+    #Especificar los campos
+    
+    imagen = forms.ImageField(required=True)                 
